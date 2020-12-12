@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User-Update</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+</head>
+<body>
+
+
+
+<!-- Modal for edit -->
+<div id="editUserModal" class="modal fade" role="dialog" th:fragment="user-update" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit user</h5>
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="#" th:action="@{/admin/user-update}" th:object="${user}" method="post">
+                    <label for="ID">ID</label>
+                    <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
+                    <br/>
+                    <label for="firstName">First Name</label>
+                    <input type="text" th:field="*{firstName}" id="firstName" placeholder="FirstName">
+                    <br/>
+                    <label for="lastName">Last Name</label>
+                    <input type="text" th:field="*{lastName}" id="lastName" placeholder="LastName">
+                    <br/>
+                    <label for="age">Age</label>
+                    <input type="text" th:field="*{age}" id="age" placeholder="Age">
+                    <br/>
+                    <label for="email">Email</label>
+                    <input type="text" th:field="*{email}" id="email" placeholder="Email">
+                    <br/>
+                    <label>Role</label>
+                    <form name='f' th:object="${user}" method='POST'>
+                        <select th:field="*{roles}">
+                            <option th:each="r : ${roles}"
+                                    th:value="${r.id}"
+                                    th:utext="${r.role}">
+                            </option>
+                        </select>
+                        <br/>
+                        <label for="password">Password</label>
+                        <input type="text" th:field="*{password}" id="password" placeholder="Password">
+                    </form>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"
+                        data-dismiss="modal">Close
+                </button>
+                <button type="submit" class="btn btn-primary">Edit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--<button type="button" class="btn btn-info"-->
+<!--        data-toggle="modal" data-target="#editModal">Edit-->
+<!--</button>-->
+
+<!--&lt;!&ndash; Modal for edit &ndash;&gt;-->
+<!--<div class="modal fade" id="editModal" tabindex="-1" role="dialog"-->
+<!--     aria-labelledby="editModalLabel" aria-hidden="true">-->
+<!--    <div class="modal-dialog" role="document">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header">-->
+<!--                <h5 class="modal-title" id="editModalLabel">Edit user</h5>-->
+<!--                <button type="button" class="close" data-dismiss="modal"-->
+<!--                        aria-label="Close">-->
+<!--                    <span aria-hidden="true">&times;</span>-->
+<!--                </button>-->
+<!--            </div>-->
+<!--            <div class="modal-body">-->
+<!--                <form action="#" th:action="@{/admin/user-update}" th:object="${user}" method="post">-->
+<!--                    <label for="ID">ID</label>-->
+<!--                    <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">-->
+<!--                    <br/>-->
+<!--                    <label for="firstName">First Name</label>-->
+<!--                    <input type="text" th:field="*{firstName}" id="firstName" placeholder="FirstName">-->
+<!--                    <br/>-->
+<!--                    <label for="lastName">Last Name</label>-->
+<!--                    <input type="text" th:field="*{lastName}" id="lastName" placeholder="LastName">-->
+<!--                    <br/>-->
+<!--                    <label for="age">Age</label>-->
+<!--                    <input type="text" th:field="*{age}" id="age" placeholder="Age">-->
+<!--                    <br/>-->
+<!--                    <label for="email">Email</label>-->
+<!--                    <input type="text" th:field="*{email}" id="email" placeholder="Email">-->
+<!--                    <br/>-->
+<!--                    <label>Role</label>-->
+<!--                    <form name='f' th:object="${user}" method='POST'>-->
+<!--                        <select th:field="*{roles}">-->
+<!--                            <option th:each="r : ${roles}"-->
+<!--                                    th:value="${r.id}"-->
+<!--                                    th:utext="${r.role}">-->
+<!--                            </option>-->
+<!--                        </select>-->
+<!--                        <br/>-->
+<!--                        <label for="password">Password</label>-->
+<!--                        <input type="text" th:field="*{password}" id="password" placeholder="Password">-->
+<!--                    </form>-->
+<!--                </form>-->
+<!--            </div>-->
+<!--            <div class="modal-footer">-->
+<!--                <button type="button" class="btn btn-secondary"-->
+<!--                        data-dismiss="modal">Close-->
+<!--                </button>-->
+<!--                <button type="submit" class="btn btn-primary">Edit</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+
+<!--<form action="#" th:action="@{/admin/user-update}" th:object="${user}" method="post">-->
+<!--    <label for="ID">ID</label>-->
+<!--    <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">-->
+<!--    <br/>-->
+<!--    <label for="firstName">First Name</label>-->
+<!--    <input type="text" th:field="*{firstName}" id="firstName" placeholder="FirstName">-->
+<!--    <br/>-->
+<!--    <label for="lastName">Last Name</label>-->
+<!--    <input type="text" th:field="*{lastName}" id="lastName" placeholder="LastName">-->
+<!--    <br/>-->
+<!--    <label for="age">Age</label>-->
+<!--    <input type="text" th:field="*{age}" id="age" placeholder="Age">-->
+<!--    <br/>-->
+<!--    <label for="email">Email</label>-->
+<!--    <input type="text" th:field="*{email}" id="email" placeholder="Email">-->
+<!--    <br/>-->
+<!--    <label>Role</label>-->
+<!--    <form name='f' th:object="${user}" method='POST'>-->
+<!--        <select th:field="*{roles}">-->
+<!--            <option th:each="r : ${roles}"-->
+<!--                    th:value="${r.id}"-->
+<!--                    th:utext="${r.role}">-->
+<!--            </option>-->
+<!--        </select>-->
+<!--        <br/>-->
+<!--    <label for="password">Password</label>-->
+<!--    <input type="text" th:field="*{password}" id="password" placeholder="Password">-->
+<!--    <br/>-->
+<!--        <button type="submit" class="btn btn-success">Update User</button>-->
+<!--</form>-->
+
+<!--</form>-->
+<br/>
+<form th:action="@{/logout}" method="POST">
+    <button type="submit" class="btn btn-danger">Logout</button>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

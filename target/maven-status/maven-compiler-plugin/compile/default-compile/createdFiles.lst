@@ -1,0 +1,13 @@
+net\crudapp\controller\AdminController.class
+net\crudapp\model\User.class
+net\crudapp\controller\AdminRestController.class
+net\crudapp\model\Role.class
+net\crudapp\security\SecurityConfig.class
+net\crudapp\CrudSpringBootApplication.class
+net\crudapp\security\SpringSecurityInitializer.class
+net\crudapp\repository\UserRepository.class
+net\crudapp\security\handler\LoginSuccessHandler.class
+net\crudapp\controller\UserController.class
+net\crudapp\security\UserDetailsServiceImpl.class
+net\crudapp\service\RoleService.class
+net\crudapp\service\UserService.class
